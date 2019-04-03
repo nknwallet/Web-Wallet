@@ -1,8 +1,10 @@
 {
-  "name": "fuck-me",
-  "version": "0.1.0",
+  "name": "nkn-web-wallet",
+  "version": "0.0.1",
   "private": true,
+  "homepage": "https://nknwallet.io/web",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
@@ -11,7 +13,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +25,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "NKN Web Wallet",
+  "main": "build/index.html",
+  "repository": "git@github.com:nknwallet/WebWallet.git",
+  "author": "Matin Kaboli <matinkaboli@aol.com>",
+  "license": "MIT"
 }
