@@ -1,0 +1,76 @@
+@import 'colors.less';
+
+.container() {
+  padding: 84px 150px 0 72px;
+}
+
+.label() {
+  width: 120px;
+  height: 24px;
+  color: #5e6ea7;
+  font-size: 20px;
+  letter-spacing: normal;
+  font-family: "Helvetica Roman";
+}
+
+.button() {
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: @blue;
+  font-family: "Helvetica Bold";
+  transition: background-color 300ms;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.27);
+
+  &:hover, &:active {
+    background-color: darken(@blue, 10%);
+  }
+}
+
+.title() {
+  color: #072d4f;
+  font-size: 17px;
+  font-family: "Helvetica Bold";
+}
+
+.grey() {
+  color: #9199b6;
+  font-family: "Helvetica Roman";
+}
+
+.textField() {
+  width: 100%;
+  height: 100%;
+  color: black;
+  padding: 0 21px;
+  font-size: 12.4px;
+  border-radius: 2px;
+  transition: border 300ms;
+  border: 2px solid #e0e3eb;
+  background-color: #f8f9fc;
+
+  &:active, &:focus {
+    outline: 0;
+    border: 2px solid @blue;
+  }
+
+  &::placeholder {
+    color: #9199b6;
+  }
+}
+
+.smallButton() {
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: @blue;
+  font-family: "Helvetica Bold";
+  transition: background-color 300ms;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17);
+
+  &:hover, &:active {
+    background-color: darken(@blue, 10%);
+  }
+}

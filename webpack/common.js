@@ -26,7 +26,11 @@ module.exports = {
             "@babel/preset-env",
             "@babel/preset-react"
           ],
-          plugins: [],
+          plugins: [
+            "@babel/plugin-transform-runtime",
+            "@babel/plugin-proposal-class-properties",
+            "@babel/plugin-transform-async-to-generator"
+          ],
         }
       }, {
         test: /\.(css|less)$/,
@@ -49,7 +53,7 @@ module.exports = {
           'less-loader'
         ]
       }, {
-        test: /\.(png|jpg|jpeg|gif|woff|woff2|ttf|eot|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|woff|woff2|ttf|eot|svg|otf)$/,
         use: [
           'url-loader'
         ]

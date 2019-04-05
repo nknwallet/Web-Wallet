@@ -1,0 +1,46 @@
+@import '~Root/styles/mixins';
+
+:local(.container) {
+  margin-top: 10px;
+  text-align: center;
+}
+
+:local(.title) {
+  color: @blue;
+  padding: 25px;
+  font-size: 17px;
+  font-family: "Helvetica Bold";
+}
+
+:local(.privateKeyContainer) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:local(.privateKey) {
+  font-size: 14px;
+  word-break: break-all;
+  padding: 20px 20px 10px 40px;
+}
+
+:local(.icon) {
+  cursor: pointer;
+  padding-top: 18px;
+  padding-left: 15px;
+}
+
+:local(.button) {
+  .smallButton();
+
+  width: 87px;
+  height: 34px;
+  margin-top: 25px;
+  font-size: 12.5px;
+}
+
+@media only screen and (max-width: 500px) {
+  :local(.privateKeyContainer) {
+    flex-direction: column;
+  }
+}

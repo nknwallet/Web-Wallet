@@ -1,0 +1,67 @@
+@import '~Root/styles/mixins';
+
+:local(.container) {
+  margin-left: 30px;
+}
+
+:local(.title) {
+  .title();
+  font-size: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+:local(.input) {
+  width: 371px;
+  height: 34px;
+  font-size: 14px;
+  margin-top: 15px;
+  padding-left: 15px;
+  border-radius: 3px;
+  transition: border 600ms;
+  background-color: #f4f5f9;
+  border: 2px solid #f4f5f9;
+
+  &::placeholder {
+    color: #9199b6;
+  }
+
+  &:active, &:focus {
+    border: 2px solid @blue;
+  }
+}
+
+:local(.error) {
+  color: #e00543;
+  margin: 5px 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+:local(.button) {
+  width: 87px;
+  height: 34px;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 12.4px;
+  border-radius: 3px;
+  background-color: #5093e4;
+  font-family: "Helvetica Bold";
+  transition: background-color 300ms;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17);
+
+  &:hover, &:active {
+    background-color: darken(@blue, 10%);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  :local(.container) {
+    margin-left: 10px;
+  }
+
+  :local(.input) {
+    width: 100%;
+  }
+}

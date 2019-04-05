@@ -1,0 +1,87 @@
+@import '~Root/styles/mixins';
+
+:local(.container) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+:local(.walletIconContainer) {
+  width: 81px;
+  height: 81px;
+  display: flex;
+  margin-top: 161px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: #eaedf3;
+
+  img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+:local(.infoText) {
+  color: #262728;
+  font-size: 19px;
+  padding-top: 21.6px;
+  font-family: "Helvetica Roman";
+}
+
+:local(.infoText2) {
+  color: #262728;
+  font-size: 19px;
+  font-family: "Helvetica Roman";
+}
+
+:local(.values) {
+  width: 620px;
+  margin-top: 10px;
+  text-align: left !important;
+}
+
+:local(.value) {
+  width: 620px;
+  height: 39px;
+  font-size: 12px;
+  margin-top: 13px;
+  padding-left: 32px;
+  align-items: center;
+  border-radius: 3.4px;
+  display: inline-flex;
+  background-color: #f4f5f9;
+}
+
+:local(.copyIcon) {
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+:local(.valueContainer) {
+  display: flex;
+  align-items: center;
+}
+
+:local(.rightArrow) {
+  width: 24px;
+  height: 18.5px;
+  margin-left: 10px;
+}
+
+:local(.buttons) {
+  width: 620px;
+  margin-top: 35px;
+  margin-bottom: 32px;
+
+  & > * {
+    margin-right: 13.5px;
+  }
+}
+
+:local(.note) {
+  color: @grey;
+  font-size: 14px;
+}

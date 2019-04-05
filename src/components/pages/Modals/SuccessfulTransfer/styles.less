@@ -1,0 +1,42 @@
+@import '~Root/styles/mixins';
+
+:local(.container) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+:local(.icon) {
+  width: 58px;
+  height: 58px;
+  margin-top: 15px;
+}
+
+:local(.title) {
+  .title();
+  font-size: 17px;
+  padding-top: 24px;
+  padding-bottom: 12px;
+}
+
+:local(.hash) {
+  color: @blue;
+  font-size: 16px;
+  text-align: center;
+  word-break: break-all;
+  padding: 15px 30px 5px 30px;
+
+  &:hover, &:active {
+    color: darken(@blue, 10%);
+  }
+}
+
+:local(.button) {
+  .smallButton();
+
+  width: 87px;
+  height: 34px;
+  margin-top: 15px;
+  font-size: 12.5px;
+}

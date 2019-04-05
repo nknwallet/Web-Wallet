@@ -1,0 +1,90 @@
+@import '~Root/styles/mixins.less';
+
+:local(.accountBox) {
+  padding-left: 19px;
+}
+
+:local(.accoutData) {
+  color: #262728;
+  font-size: 12px;
+  padding-top: 8px;
+  padding-right: 3px;
+}
+
+:local(.accoutData2) {
+  color: #262728;
+  display: inline;
+  font-size: 12px;
+  padding-right: 9px;
+}
+
+:local(.accoutTitle) {
+  .grey();
+  font-size: 13px;
+  padding-top: 25px;
+  font-family: "Helvetica Roman";
+}
+
+:local(.qrBox) {
+  display: flex;
+  padding-top: 10px;
+  align-items: center;
+  align-content: center;
+}
+
+:local(.qrCode) {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+:local(.submitIcon) {
+  width: 14px;
+  height: 14px;
+}
+
+:local(.button) {
+  width: 98px;
+  color: white;
+  height: 33px;
+  cursor: pointer;
+  margin-top: 46px;
+  border-radius: 2px;
+  font-family: "Helvetica Roman";
+  padding: 0 16px 0 16px;
+  background-color: #5093e4;
+  transition: background-color 300ms;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17);
+
+  &:hover, &:active {
+    background-color: darken(@blue, 10%);
+  }
+}
+
+:local(.submitButton) {
+  display: flex;
+  font-size: 13px;
+  font-weight: 400;
+  align-items: center;
+  justify-content: space-between;
+
+  & > * {
+    margin: 0 3px;
+  }
+
+  p {
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  :local(.qrBox) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    & > * {
+      margin-top: 10px;
+    }
+  }
+}
