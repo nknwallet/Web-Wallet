@@ -10,10 +10,10 @@ module.exports = Object.assign({}, common, {
   mode: 'production',
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-      }),
+      // new UglifyJsPlugin({
+      //   cache: true,
+      //   parallel: true,
+      // }),
       new OptimizeCSSAssetsPlugin({}),
     ]
   },
@@ -23,9 +23,9 @@ module.exports = Object.assign({}, common, {
         'NODE_ENV': JSON.stringify('production'),
       },
     }),
-    new UglifyJsPlugin({
-      cache: true,
-    }),
+    // new UglifyJsPlugin({
+    //   cache: true,
+    // }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
     }),

@@ -15,7 +15,7 @@ import NotLoggedRoute from './tools/NotLoggedRoute';
 function App(props) {
   return (
     <Fragment>
-      <Router>
+      <Router basename="/wallet">
         <Switch>
           <NotLoggedRoute exact path="/open-wallet" component={OpenWallet} />
           <NotLoggedRoute exact path="/create-wallet" component={CreateWallet} />
