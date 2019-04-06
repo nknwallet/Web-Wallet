@@ -8,15 +8,15 @@ const common = require('./common.js');
 
 module.exports = Object.assign({}, common, {
   mode: 'production',
-  optimization: {
-    minimizer: [
+  // optimization: {
+    // minimizer: [
       // new UglifyJsPlugin({
-      //   cache: true,
-      //   parallel: true,
+        // cache: true,
+        // parallel: true,
       // }),
-      new OptimizeCSSAssetsPlugin({}),
-    ]
-  },
+      // new OptimizeCSSAssetsPlugin({}),
+    // ]
+  // },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -24,10 +24,10 @@ module.exports = Object.assign({}, common, {
       },
     }),
     // new UglifyJsPlugin({
-    //   cache: true,
+      // cache: true,
     // }),
-    new MiniCssExtractPlugin({
-      filename: 'bundle.css',
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: 'bundle.css',
+    // }),
   ]
 });
