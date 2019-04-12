@@ -32,7 +32,11 @@ gulp.task('prod:copy', ['lint', 'clean'], () =>
     gulp.src(
       'src/static/**/*'
     )
-    .pipe(gulp.dest('build/static'))
+    .pipe(gulp.dest('build/static')),
+    gulp.src(
+      'template/index.js'
+    )
+    .pipe(gulp.dest('build'))
   ]
 );
 
