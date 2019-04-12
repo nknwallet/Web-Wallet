@@ -11,8 +11,6 @@ import styles from './styles.less';
 function Transaction(props) {
   const isMoneyComing = props.data.FromAddr === props.wallet.wallet.address;
 
-  console.log(new Date(props.data.Timestamp));
-
   return (
     <div className={styles.container}>
       <p className={styles.height}>
