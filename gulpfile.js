@@ -4,58 +4,76 @@ const gulp = require('gulp');
 const del = require('del');
 const lint = require('gulp-eslint');
 const replace = require('gulp-replace');
+const webpack = require('webpack');
 const config = require('./src/config.js');
 
 gulp.task('clean', cb =>
-  del([
+  del(
     'build/**',
-    '!build',
-  ],
-    cb,
+    cb
   )
 );
 
-gulp.task('dev:copy', gulp.series('clean', (cb) => {
-  gulp.src(
-    'src/static/**/*',
-  )
-  .pipe(gulp.dest('build'));
+gulp.task('dev:copy', ['clean'], () =>
+  [
+    gulp.src(
+      'src/static/**/*'
+    )
+    .pipe(gulp.dest('build/static')),
+    gulp.src(
+      'template/index.js'
+    )
+    .pipe(gulp.dest('build'))
+  ]
+);
 
-  gulp.src([
-    'template/**',
-    '!template/index.html',
-  ])
-  .pipe(gulp.dest('build'));
+gulp.task('prod:copy', ['lint', 'clean'], () =>
+  [
+    gulp.src(
+      'src/static/**/*'
+    )
+    .pipe(gulp.dest('build/static'))
+  ]
+);
 
-  gulp.src(
-    'template/index.html',
-  )
+gulp.task('dev:build', ['clean'], () => {
+  webpack(require('./webpack/dev.js'), (err, stats) => {
+    if (err) {
+      throw new Error('webpack build failed', err);
+    }
+
+    console.log(stats.toString({
+      assets: true,
+      colors: true
+    }));
+  });
+});
+
+gulp.task('prod:build', ['lint', 'clean'], cb =>
+  webpack(require('./webpack/prod.js'), (err, stats) => {
+    if (err) {
+      throw new Error('webpack build failed', err);
+    }
+
+    console.log(stats.toString({
+      assets: true,
+      colors: true
+    }));
+    cb();
+  })
+);
+
+gulp.task('dev:replace', ['clean'], () =>
+  gulp.src('template/index.html')
   .pipe(replace('@@CDN@@', config.cdn))
-  .pipe(gulp.dest('build'));
+  .pipe(gulp.dest('build'))
+);
 
-  cb();
-}));
-
-gulp.task('prod:copy', gulp.series('clean', (cb) => {
-  gulp.src(
-    'src/static/**/*',
-  )
-  .pipe(gulp.dest('build'));
-
-  gulp.src([
-    'template/**',
-    '!template/index.html',
-  ])
-  .pipe(gulp.dest('build'));
-
-  gulp.src(
-    'template/index.html',
-  )
+gulp.task('prod:replace', ['lint', 'clean'], () =>
+  gulp.src('template/index.html')
   .pipe(replace('@@CDN@@', config.cdn))
-  .pipe(gulp.dest('build'));
-
-  cb();
-}));
+  .pipe(gulp.dest('build'))
+);
 
 gulp.task('lint', () =>
   gulp.src(['src/**/*.js', 'src/**/*.jsx'])
@@ -64,5 +82,6 @@ gulp.task('lint', () =>
   .pipe(lint.failAfterError())
 );
 
-gulp.task('dev', gulp.series('dev:copy'));
-gulp.task('prod', gulp.series('lint', 'prod:copy'));
+gulp.task('default', ['clean', 'dev:copy', 'dev:replace', 'dev:build']);
+gulp.task('dev', ['clean', 'dev:copy', 'dev:replace', 'dev:build']);
+gulp.task('prod', ['lint', 'clean', 'prod:copy', 'prod:replace', 'prod:build']);

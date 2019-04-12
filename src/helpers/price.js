@@ -1,10 +1,11 @@
 import fetch from 'node-fetch';
+import config from 'Root/config';
 
 export default async () => new Promise((resolve, reject) => {
-  fetch('https://api.coinmarketcap.com/v1/ticker/nkn/?convert=USD')
+  fetch(`${config.proxy}https://api.coinmarketcap.com/v1/ticker/nkn/?convert=USD`)
     .then(res => res.json())
     .then((data) => {
-      resolve(data);
+      resolve(data.data);
     })
     .catch((error) => {
       reject(error);

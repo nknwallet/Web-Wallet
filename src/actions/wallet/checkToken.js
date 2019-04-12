@@ -1,8 +1,10 @@
-import store from 'Root/store';
-import types from 'Root/actions';
 import nknWallet from 'nkn-wallet';
 
-export default async () => new Promise((resolve) => {
+import store from 'Root/store';
+import types from 'Root/actions';
+import loadDashboard from './loadFirstDashboard';
+
+export default async () => new Promise(async (resolve) => {
   const privateKey = global.localStorage.getItem('privateKey');
 
   if (!privateKey) {
@@ -29,6 +31,8 @@ export default async () => new Promise((resolve) => {
     type: types.token.LOGIN,
     token: wallet.getPrivateKey(),
   });
+
+  await loadDashboard();
 
   return resolve();
 });

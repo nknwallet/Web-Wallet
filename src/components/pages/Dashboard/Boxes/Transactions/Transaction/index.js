@@ -11,6 +11,8 @@ import styles from './styles.less';
 function Transaction(props) {
   const isMoneyComing = props.data.FromAddr === props.wallet.wallet.address;
 
+  console.log(new Date(props.data.Timestamp));
+
   return (
     <div className={styles.container}>
       <p className={styles.height}>
@@ -42,7 +44,7 @@ function Transaction(props) {
       </p>
 
       <p className={styles.time}>
-        {moment(new Date(`${props.data.Timestamp} UTC`)).fromNow()}
+        {moment(new Date(props.data.Timestamp)).fromNow()}
       </p>
 
       <img
