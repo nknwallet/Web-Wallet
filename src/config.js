@@ -1,5 +1,5 @@
 const config = {
-  port: 8180,
+  port: 6060,
   proxy: 'http://localhost:8888/request?redirect=',
   cdn: `http://localhost:${process.env.NODE_PORT || 6060}/static`,
 };

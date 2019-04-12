@@ -7,6 +7,7 @@
     "gulp": "./node_modules/.bin/gulp"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "autoprefixer": "^9.1.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
@@ -20,6 +21,18 @@
     "css-loader": "^1.0.0",
     "del": "^3.0.0",
     "eslint": "^5.5.0",
+=======
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.5.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "del": "^4.1.0",
+    "eslint": "^5.16.0",
+>>>>>>> 246edb2f1f018431494706a3b1e6898d608c6d6a
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
@@ -39,7 +52,10 @@
     "webpack": "^4.17.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
+=======
+>>>>>>> 246edb2f1f018431494706a3b1e6898d608c6d6a
     "babel-polyfill": "^6.26.0",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",

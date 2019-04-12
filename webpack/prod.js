@@ -9,6 +9,7 @@ const config = require('../src/config.js');
 
 module.exports = {
   mode: 'production',
+<<<<<<< HEAD
   entry: resolve(__dirname, '..', 'src/app.js'),
   output: {
     filename: 'bundle.js',
@@ -78,3 +79,28 @@ module.exports = {
   ],
   target: 'web'
 };
+=======
+  // optimization: {
+    // minimizer: [
+      // new UglifyJsPlugin({
+        // cache: true,
+        // parallel: true,
+      // }),
+      // new OptimizeCSSAssetsPlugin({}),
+    // ]
+  // },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production'),
+      },
+    }),
+    // new UglifyJsPlugin({
+      // cache: true,
+    // }),
+    // new MiniCssExtractPlugin({
+    //   filename: 'bundle.css',
+    // }),
+  ]
+});
+>>>>>>> 246edb2f1f018431494706a3b1e6898d608c6d6a
