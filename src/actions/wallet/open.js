@@ -2,7 +2,12 @@ import nknWallet from 'nkn-wallet';
 
 import store from 'Root/store';
 import types from 'Root/actions';
+import config from 'Root/config';
 import language from 'Root/helpers/language';
+
+nknWallet.configure({
+  rpcAddr: `${config.proxy}${require('nkn-wallet/lib/config').rpcAddr}`,
+});
 
 export default async ({
   push,
