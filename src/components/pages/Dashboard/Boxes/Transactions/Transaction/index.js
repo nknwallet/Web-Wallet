@@ -20,7 +20,7 @@ function Transaction(props) {
       <a
         target="_blank"
         className={styles.hash}
-        href={`https://testnet.nkn.org/detail/tx/${props.data.Hash}`}
+        href={`//testnet.nkn.org/detail/tx/${props.data.Hash}`}
       >
         {props.data.Hash}
       </a>
@@ -28,7 +28,7 @@ function Transaction(props) {
       <a
         target="_blank"
         className={styles.shortHash}
-        href={`https://testnet.nkn.org/detail/tx/${props.data.Hash}`}
+        href={`//testnet.nkn.org/detail/tx/${props.data.Hash}`}
       >
         {shortHash(props.data.Hash)}
       </a>

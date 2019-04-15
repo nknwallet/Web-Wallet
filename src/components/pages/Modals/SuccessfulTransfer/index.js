@@ -32,7 +32,7 @@ class SuccessfulTransfer extends Component {
         <a
           target="_blank"
           className={styles.hash}
-          href={`https://testnet.nkn.org/detail/tx/${this.props.hash}`}
+          href={`//testnet.nkn.org/detail/tx/${this.props.hash}`}
         >
           {!this.props.failure && this.props.hash}
         </a>
