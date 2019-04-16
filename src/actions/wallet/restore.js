@@ -2,10 +2,9 @@ import nknWallet from 'nkn-wallet';
 
 import store from 'Root/store';
 import types from 'Root/actions';
-import config from 'Root/config';
 
 nknWallet.configure({
-  rpcAddr: config.rpcAddr,
+  rpcAddr: 'https://devnet-seed.nkn.org',
 });
 
 export default async ({
@@ -14,7 +13,7 @@ export default async ({
   password,
   privateKey,
 }) => {
-  const wallet = nknWallet.restoreWalletByPrivateKey(privateKey, password);
+  const wallet = nknWallet.restoreWalletBySeed(privateKey, password);
 
   store.dispatch({
     name,
@@ -29,7 +28,7 @@ export default async ({
 
   global.localStorage.setItem('name', name);
   global.localStorage.setItem('password', password);
-  global.localStorage.setItem('privateKey', wallet.getPrivateKey());
+  global.localStorage.setItem('privateKey', wallet.getSeed());
 
   push('/loading');
 };

@@ -1,15 +1,12 @@
-import nknWallet from 'nkn-wallet';
-
 import store from 'Root/store';
 import types from 'Root/actions';
-import config from 'Root/config';
-import loadDashboard from './loadFirstDashboard';
+import nknWallet from 'nkn-wallet';
 
 nknWallet.configure({
-  rpcAddr: config.rpcAddr,
+  rpcAddr: 'https://devnet-seed.nkn.org',
 });
 
-export default async () => new Promise(async (resolve) => {
+export default async () => new Promise((resolve) => {
   const privateKey = global.localStorage.getItem('privateKey');
 
   if (!privateKey) {
@@ -24,7 +21,7 @@ export default async () => new Promise(async (resolve) => {
   const name = global.localStorage.getItem('name');
   const password = global.localStorage.getItem('password');
 
-  const wallet = nknWallet.restoreWalletByPrivateKey(privateKey, password);
+  const wallet = nknWallet.restoreWalletBySeed(privateKey, password);
 
   store.dispatch({
     name,
@@ -36,8 +33,6 @@ export default async () => new Promise(async (resolve) => {
     type: types.token.LOGIN,
     token: wallet.getPrivateKey(),
   });
-
-  await loadDashboard();
 
   return resolve();
 });
