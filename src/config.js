@@ -1,6 +1,7 @@
 const config = {
   port: 6060,
   proxy: '/request?redirect=',
+  rpcAddr: 'https://testnet.nkn.org/api/wallet',
   cdn: `http://localhost:${process.env.NODE_PORT || 6060}/static`,
 };
 

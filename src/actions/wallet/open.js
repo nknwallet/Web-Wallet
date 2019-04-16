@@ -6,7 +6,7 @@ import config from 'Root/config';
 import language from 'Root/helpers/language';
 
 nknWallet.configure({
-  rpcAddr: `${config.proxy}${require('nkn-wallet/lib/config').rpcAddr}`,
+  rpcAddr: config.rpcAddr,
 });
 
 export default async ({

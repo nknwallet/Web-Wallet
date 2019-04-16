@@ -2,7 +2,12 @@ import nknWallet from 'nkn-wallet';
 
 import store from 'Root/store';
 import types from 'Root/actions';
+import config from 'Root/config';
 import loadDashboard from './loadFirstDashboard';
+
+nknWallet.configure({
+  rpcAddr: config.rpcAddr,
+});
 
 export default async () => new Promise(async (resolve) => {
   const privateKey = global.localStorage.getItem('privateKey');
