@@ -9,7 +9,7 @@ import styles from './styles.less';
 import Transaction from './Transaction';
 
 function Transactions(props) {
-  const transactions = props.transactions.slice(0, 4);
+  const transactions = props.transactions && props.transactions.slice(0, 4);
 
   return (
     <Box
@@ -26,7 +26,7 @@ function Transactions(props) {
       </div>
 
       {
-        transactions.map(data => (
+        transactions && transactions.map(data => (
           <Transaction
             data={data}
             key={shortid.generate()}

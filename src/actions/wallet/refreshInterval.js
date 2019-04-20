@@ -9,5 +9,5 @@ export default async () => {
     block();
     balance();
     transactions();
-  }, 5000);
+  }, 2000);
 };
