@@ -45,13 +45,13 @@ class DownloadWindow extends Component {
           <TextLabel>{language.yourPrivateKey[this.props.language]}</TextLabel>
 
           <div className={styles.valueContainer}>
-            <div className={styles.value}>{this.props.wallet.wallet.getPrivateKey()}</div>
+            <div className={styles.value}>{this.props.wallet.wallet.getSeed()}</div>
 
             <div className={styles.copyIcon}>
               <img
                 alt="Copy"
                 src={copyIcon}
-                onClick={this.handleCopy(this.props.wallet.wallet.getPrivateKey())}
+                onClick={this.handleCopy(this.props.wallet.wallet.getSeed())}
               />
             </div>
           </div>
