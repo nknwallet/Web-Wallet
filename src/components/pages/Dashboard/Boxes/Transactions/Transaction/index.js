@@ -41,7 +41,7 @@ function Transaction(props) {
       </p>
 
       <p className={styles.time}>
-        {moment(new Date(`${props.data.created_at} UTC`)).fromNow()}
+        {moment.utc(new Date(`${props.data.created_at}`)).fromNow()}
       </p>
 
       <img
