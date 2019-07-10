@@ -9,29 +9,43 @@ import styles from './styles.less';
 import Transaction from './Transaction';
 
 function Transactions(props) {
-  const transactions = props.transactions && props.transactions.slice(0, 4);
+  const transactions = props.transactions.slice(0, 4);
 
   return (
     <Box
       width={691}
       height={263}
       overflow="scroll"
-      title={language.lastTransactions[props.language]}
+      title={
+        transactions.length
+          ? language.lastTransactions[props.language]
+          : 'No Transactions'
+      }
     >
-      <div className={styles.labels}>
-        <p className={styles.label1}>Height</p>
-        <p className={styles.label2}>Txid</p>
-        <p className={styles.label3}>Value</p>
-        <p className={styles.label4}>Time</p>
-      </div>
+      {
+        transactions.length
+          ? (
+            <div className={styles.labels}>
+              <p className={styles.label1}>{language.height[props.language]}</p>
+              <p className={styles.label2}>{language.hash[props.language]}</p>
+              <p className={styles.label3}>{language.value[props.language]}</p>
+              <p className={styles.label4}>{language.time[props.language]}</p>
+            </div>
+          )
+          : ''
+      }
 
       {
-        transactions && transactions.map(data => (
-          <Transaction
-            data={data}
-            key={shortid.generate()}
-          />
-        ))
+        !transactions.length
+          ? (
+            ''
+          )
+          : transactions.map(data => (
+            <Transaction
+              data={data}
+              key={shortid.generate()}
+            />
+          ))
       }
     </Box>
   );

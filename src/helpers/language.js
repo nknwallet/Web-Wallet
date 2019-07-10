@@ -15,6 +15,10 @@ const background = {
     en: 'Safe',
     zh: '安全',
   },
+  contact: {
+    en: 'Contact',
+    zh: '联系',
+  },
 };
 
 const fields = {
@@ -34,13 +38,17 @@ const fields = {
     en: 'Confirm password',
     zh: '确认密码',
   },
+  eightToTwelveChars: {
+    en: '8-12 characters',
+    zh: '8到12个字符',
+  },
+  defaultToMyWallet: {
+    en: 'default to mywallet',
+    zh: '缺省至我的钱包',
+  },
   eightToTwentyChars: {
     en: '8-20 characters',
     zh: '8到20个字符',
-  },
-  defaultToMyWallet: {
-    en: 'default to MyWallet',
-    zh: '缺省至我的钱包',
   },
   yourPrivateKey: {
     en: 'Your private key',
@@ -93,6 +101,50 @@ const loginTitle = {
     en: 'Create',
     zh: '创建',
   },
+  back: {
+    en: 'Back',
+    zh: '后退',
+  },
+  phoneWallet: {
+    en: 'Phone Wallet',
+    zh: '手机钱包',
+  },
+  desktopWallet: {
+    en: 'Desktop Wallet',
+    zh: '桌面钱包',
+  },
+  extensionWallet: {
+    en: 'Extension Wallet',
+    zh: '浏览器钱包',
+  },
+  howWouldYouLikeToAccessYourWallet: {
+    en: 'How would you like to access your wallet?',
+    zh: '用何种方式访问您的钱包？',
+  },
+  crossPlatformDesktopWallet: {
+    en: 'A cross-platform desktop wallet',
+    zh: '跨平台桌面钱包',
+  },
+  openWithDatFile: {
+    en: 'Open with a .dat file',
+    zh: '打开后缀名是dat的文件',
+  },
+  connectViaExtension: {
+    en: 'Connect via browser extension',
+    zh: '通过浏览器扩展连接',
+  },
+  ledger: {
+    en: 'Ledger',
+    zh: '莱杰',
+  },
+  connectViaLedger: {
+    en: 'Connect via ledger',
+    zh: '通过账本连接',
+  },
+  comingSoon: {
+    en: 'Coming Soon!',
+    zh: '即将到来',
+  },
 };
 
 const errors = {
@@ -139,6 +191,14 @@ const errors = {
   addressIsInvalid: {
     en: 'Address is invalid.',
     zh: '地址无效',
+  },
+  fieldMustBeEightToTwelveCharacters: {
+    en: 'Field must be 8-12 characters',
+    zh: '该字段必须为8-20个字符', // not sure
+  },
+  onlyLowerCaseLetters: {
+    en: 'Field must be only lowercase letters',
+    zh: '字段必须只是小写字母', // not sure
   },
 };
 
@@ -195,6 +255,58 @@ const dashboard = {
     en: 'Account',
     zh: '账户',
   },
+  height: {
+    en: 'Height',
+    zh: '高度', // not sure
+  },
+  hash: {
+    en: 'Hash',
+    zh: '哈希',
+  },
+  value: {
+    en: 'Value',
+    zh: '价值',
+  },
+  time: {
+    en: 'Time',
+    zh: '时间',
+  },
+  cancel: {
+    en: 'Cancel',
+    zh: '取消',
+  },
+  confirm: {
+    en: 'Confirm',
+    zh: '确认',
+  },
+  total: {
+    en: 'Total',
+    zh: '总计',
+  },
+  fee: {
+    en: 'Transaction Fee',
+    zh: '费用',
+  },
+  youWillSend: {
+    en: 'You\'ll Send:',
+    zh: '您将发送：',
+  },
+  to: {
+    en: 'To',
+    zh: '至',
+  },
+  from: {
+    en: 'From',
+    zh: '从',
+  },
+  confirmTransaction: {
+    en: 'Confirm Transaction',
+    zh: '确认交易',
+  },
+  connectWallet: {
+    en: 'Connect Wallet',
+    zh: '连接钱包',
+  },
 };
 
 const download = {
@@ -250,12 +362,16 @@ const modals = {
     zh: '成功发送',
   },
   scanQrCode: {
-    en: 'SCAN QRCODE',
+    en: 'SCAN ME',
     zh: '扫描二维码',
   },
   show: {
     en: 'Show',
     zh: '显示',
+  },
+  transactionSent: {
+    en: 'Transaction Sent',
+    zh: '已发送交易', // not sure
   },
 };
 

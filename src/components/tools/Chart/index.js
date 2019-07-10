@@ -16,11 +16,9 @@ class ChartComponent extends Component {
     const data = {};
     const prices = this.props.priceUsd;
 
-    if (prices) {
-      prices.forEach(([time, price]) => {
-        data[new Date(time)] = price;
-      });
-    }
+    prices.forEach(([time, price]) => {
+      data[new Date(time)] = price;
+    });
 
     this.setState({
       data,

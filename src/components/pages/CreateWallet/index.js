@@ -1,23 +1,15 @@
 import { connect } from 'react-redux';
-import React, { Fragment, Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import language from 'Root/helpers/language';
 import validate from 'Root/helpers/validate';
+import namePattern from 'Root/helpers/namePattern';
 import createWalletAction from 'Root/actions/wallet/create';
 
 import Page from 'Root/components/tools/Page';
 import TextField from 'Root/components/tools/TextField';
 import TextLabel from 'Root/components/tools/TextField/Label';
-
-function Links(props) {
-  return (
-    <Fragment>
-      <Link to="/restore-wallet">{language.restoreFromPrivateKey[props.language]}</Link>
-      <Link to="/open-wallet">{language.openWallet[props.language]}</Link>
-    </Fragment>
-  );
-}
 
 class CreateWallet extends Component {
   state = {
@@ -40,7 +32,7 @@ class CreateWallet extends Component {
     let hasError = false;
 
     if (this.name) {
-      if (!validate(this.name)) {
+      if (!namePattern(this.name)) {
         hasError = true;
         errors.name = language.thisFieldIsNotValid[this.props.language];
       }
@@ -72,7 +64,7 @@ class CreateWallet extends Component {
     if (!hasError) {
       createWalletAction({
         password: this.password,
-        name: this.name || 'MyWallet',
+        name: this.name || 'mywallet',
         push: this.props.history.push,
       });
     }
@@ -81,8 +73,8 @@ class CreateWallet extends Component {
   render() {
     return (
       <Page
+        back
         handleSubmit={this.handleSubmit}
-        links={<Links language={this.props.language} />}
         buttonTitle={language.create[this.props.language].toUpperCase()}
         title={language.createNewWallet[this.props.language].toUpperCase()}
       >
@@ -91,7 +83,7 @@ class CreateWallet extends Component {
           type="text"
           error={this.state.errors.name}
           inputRef={(r) => { this.name = r; }}
-          placeholder={`${language.eightToTwentyChars[this.props.language]}, ${language.defaultToMyWallet[this.props.language]}`}
+          placeholder={`${language.eightToTwelveChars[this.props.language]}, ${language.defaultToMyWallet[this.props.language]}`}
         />
 
         <TextLabel>{language.password[this.props.language]}</TextLabel>

@@ -1,30 +1,24 @@
-// import fetch from 'node-fetch';
+import fetch from 'node-fetch';
 
 import store from 'Root/store';
+import config from 'Root/config';
 import types from 'Root/actions';
-// import config from 'Root/config';
 
-export default async () => new Promise((resolve) => {
-  // const { wallet } = store.getState().wallet;
-  //
-  // fetch(`${config.proxy}https://testnet.nkn.org/api/v1/transfer/address/${wallet.address}/0`)
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //     const { Data } = data.data;
-  //
-  //     store.dispatch({
-  //       list: Data.list,
-  //       type: types.wallet.TRANSACTIONS,
-  //     });
-  //
-  //     resolve();
-  //   })
-  //   .catch((error) => {
-  //     reject(error);
-  //   });
+export default async () => new Promise(async (resolve) => {
+  const { wallet } = store.getState().wallet;
+
+  const { data } = await fetch(`${config.proxy}https://api2.nknx.org/addresses/${wallet.address}/transactions`).then(res => res.json());
+
+  const transactions = [];
+
+  for (const i of data.data) {
+    const payload = await fetch(`${config.proxy}https://api2.nknx.org/transactions/${i.id}/payload`).then(res => res.json()); // eslint-disable-line
+
+    transactions.push({ ...i, payload: payload.data });
+  }
 
   store.dispatch({
-    list: [],
+    list: transactions,
     type: types.wallet.TRANSACTIONS,
   });
 

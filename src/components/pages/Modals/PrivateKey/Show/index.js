@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import copyText from 'Root/helpers/copy';
-import copyIcon from 'Root/images/copy.svg';
 import language from 'Root/helpers/language';
+import Copy from 'Root/components/tools/Copy';
 import closeModalAction from 'Root/actions/modal/close';
+import privateKeyIcon from 'Root/images/privateKey.svg';
 
 import styles from './styles.less';
 
@@ -17,25 +17,29 @@ class Show extends Component {
     closeModalAction();
   }
 
-  handleCopy = () => {
-    copyText(this.state.privateKey);
-  }
-
   render() {
     return (
       <div className={styles.container}>
-        <p className={styles.title}>{language.privateKey[this.props.language]}</p>
-
-        <div className={styles.privateKeyContainer}>
-          <p className={styles.privateKey}>{this.state.privateKey}</p>
-
+        <div className={styles.result}>
           <img
-            alt="Copy"
-            src={copyIcon}
+            alt="Icon"
+            src={privateKeyIcon}
             className={styles.icon}
-            onClick={this.handleCopy}
           />
+
+          <p className={styles.title}>
+            {language.yourPrivateKey[this.props.language]}
+          </p>
         </div>
+
+        <div className={styles.result2}>
+          <div className={styles.text}>
+            {this.state.privateKey}
+          </div>
+
+          <Copy text={this.state.privateKey} />
+        </div>
+
 
         <button type="button" onClick={this.handleClick} className={styles.button}>
           {language.ok[this.props.language]}

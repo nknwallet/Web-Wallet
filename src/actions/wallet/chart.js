@@ -8,7 +8,7 @@ export default async () => new Promise(async (resolve) => {
   const prices = await chart(wallet.address);
 
   store.dispatch({
-    priceUsd: prices.price_usd,
+    priceUsd: prices.data.price_usd,
     type: types.wallet.PRICE_USD,
   });
 
