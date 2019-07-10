@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
-import { config } from 'Root/config';
+import config from 'Root/config';
 import language from 'Root/helpers/language';
 import leftArrow from 'Root/images/left-arrow.svg';
 import desktopIcon from 'Root/images/desktopPlatform.svg';
@@ -28,12 +28,12 @@ class DesktopIntro extends Component {
           {language.crossPlatformDesktopWallet[this.props.language]}
         </div>
 
-        <div role="presentation" onClick={this.handleClick} className={styles.button}>
-          <a href={config.desktopRelease}>
+        <a href={config.desktopRelease}>
+          <div role="presentation" onClick={this.handleClick} className={styles.button}>
             <img src={desktopIcon} alt="Desktop Icon" />
             <p>{language.download[this.props.language]}</p>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <img src={dashboardPhoto} alt="Dashboard" className={styles.dashboard} />
       </div>
