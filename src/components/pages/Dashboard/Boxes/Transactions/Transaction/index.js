@@ -19,6 +19,7 @@ function Transaction(props) {
       </p>
 
       <a
+        target="_blank"
         className={styles.hash}
         href={`${config.transaction}/${props.data.hash}`}
       >
@@ -26,6 +27,7 @@ function Transaction(props) {
       </a>
 
       <a
+        target="_blank"
         className={styles.shortHash}
         href={`${config.transaction}/${props.data.hash}`}
       >
