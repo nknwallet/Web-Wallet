@@ -2,7 +2,7 @@ import nknWallet from 'nkn-wallet';
 
 import store from 'Root/store';
 import types from 'Root/actions';
-import { rpcAddr } from 'Root/config.json';
+import { rpcAddr } from 'Root/config';
 import language from 'Root/helpers/language';
 
 nknWallet.configure({

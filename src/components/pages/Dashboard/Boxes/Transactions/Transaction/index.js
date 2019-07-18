@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import config from 'Root/config';
 import shortHash from 'Root/helpers/shortHash';
 import redArrow from 'Root/images/redArrow.png';
+import utcToLocal from 'Root/helpers/utcToLocal';
 import greenArrow from 'Root/images/greenArrow.png';
 
 import styles from './styles.less';
@@ -43,7 +44,7 @@ function Transaction(props) {
       </p>
 
       <p className={styles.time}>
-        {moment.utc(new Date(`${props.data.created_at}`)).fromNow()}
+        {moment(utcToLocal(new Date(props.data.created_at))).fromNow()}
       </p>
 
       <img
